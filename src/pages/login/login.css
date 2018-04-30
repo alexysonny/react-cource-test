@@ -1,0 +1,36 @@
+.loginFormOutline {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.form {
+    background-color: rgba(0, 144, 170, 0.6);
+    padding: 20px;
+    height: 100%;
+    border-radius: 5px;
+    border: solid 2px rgb(0, 144, 170);
+}
+.formElement {
+    display: grid;
+    grid-template-columns: 150px 200px;
+    text-align: left;
+    padding: 10px;
+}
+.formElement button {
+    /*grid-column-start: 2;*/
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.9);
+    transition: 0.2s;
+}
+.formElement input {
+    /*border-radius: 6px;*/
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom: rgba(255, 255, 255, 0.7) solid 1px;
+}

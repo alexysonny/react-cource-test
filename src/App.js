@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from 'react-router-dom'
 import Navbar from "./components/navbar.jsx";
-import Home from './pages/home';
-import News from './pages/news';
-import Profile from './pages/profile';
-import Login from './pages/login';
+import Home from './pages/home/home';
+import News from './pages/news/news';
+import Profile from './pages/profile/profile';
+import Login from './pages/login/login';
 
 class App extends Component {
   render() {
