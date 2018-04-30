@@ -3,7 +3,11 @@ import React, { Component } from 'react'
 export default class Login extends Component{
     render() {
         return(
-            <h1>Login</h1>
+            <div className="loginWrapper">
+                <div className="loginFormOutline">
+
+                </div>
+            </div>
         );
     }
 }

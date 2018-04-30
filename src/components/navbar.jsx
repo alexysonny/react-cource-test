@@ -8,7 +8,7 @@ export default class Navbar extends Component{
             <div className="navbarWrapper">
                 <div className="navbarElements">
                     <ul>
-                        <li><Link to="/">Домой</Link></li>
+                        <li><Link to="/">На главную</Link></li>
                         <li><Link to="/news">Новости</Link></li>
                         <li><Link to="/profile">Профиль</Link></li>
                         <li><Link to="/login">Вход</Link></li>

@@ -1,13 +1,15 @@
 .navbarWrapper {
-    background-color: #0090b1;
+    background-color: rgba(0, 144, 170, 0.45);
     height: 50px;
-    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
 .navbarElements {
     width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .navbarElements ul {
     display: flex;
@@ -19,6 +21,9 @@
     display: inline;
     color: #fff;
     font-weight: 700;
+}
+.navbarElements ul li a {
+    text-decoration: none;
 }
 .navbarElements ul li:first-child {
     margin-left: 0;
