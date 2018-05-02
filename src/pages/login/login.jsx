@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+import * as authActions from '../../store/actions/LoginActions';
 import "./login.css";
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,11 +19,7 @@ export default class Login extends Component {
     }
   }
   onSubmitHandler() {
-    if (this.state.login === "Admin" && this.state.password === "12345") {
-      localStorage.setItem("authorised", true);
-    } else {
-      localStorage.setItem("authorised", false)
-    }
+    this.props.authActions.userLogin(this.state.login, this.state.password)
   }
   render() {
     return (
@@ -50,3 +49,17 @@ export default class Login extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.login.isLoggedIn
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    authActions: bindActionCreators(authActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Login)
