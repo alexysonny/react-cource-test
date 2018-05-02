@@ -11,16 +11,15 @@ export default class Login extends Component {
     this.onSubmitHandler = this.onSubmitHandler.bind(this)
   }
   onChangeHandler(fieldName, e) {
-    console.log(e.target.value);
     if (e.target.value.trim().length > 0) {
       this.setState({ ["" + fieldName]: e.target.value });
     }
   }
   onSubmitHandler() {
-    if (this.state.login === 'Admin' && this.state.password === '12345') {
-      localStorage.setItem('Authorised', true)
+    if (this.state.login === "Admin" && this.state.password === "12345") {
+      localStorage.setItem("authorised", true);
     } else {
-      localStorage.setItem('Authorised', false)
+      localStorage.setItem("authorised", false)
     }
   }
   render() {
