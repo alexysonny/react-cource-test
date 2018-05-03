@@ -9,7 +9,8 @@ class Login extends Component {
     super(props);
     this.state = {
       login: "",
-      password: ""
+      password: "",
+      errorMessage: "Имя пользователя или пароль введены не верно"
     };
     this.onSubmitHandler = this.onSubmitHandler.bind(this)
   }
@@ -20,6 +21,7 @@ class Login extends Component {
   }
   onSubmitHandler() {
     this.props.authActions.userLogin(this.state.login, this.state.password)
+
   }
   render() {
     return (
@@ -41,6 +43,9 @@ class Login extends Component {
               onChange={this.onChangeHandler.bind(this, "password")}
             />
           </div>
+          <div className="errorMessage">
+            <p>{this.props.authError ? this.state.errorMessage : ''}</p>
+          </div>
           <div className="formElement">
             <button onClick={this.onSubmitHandler}>Войти</button>
           </div>
@@ -52,7 +57,8 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    isLoggedIn: state.login.isLoggedIn
+    isLoggedIn: state.login.isLoggedIn,
+    authError: state.login.authError
   }
 }
 
