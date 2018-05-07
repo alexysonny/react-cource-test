@@ -1,18 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { Switch, Route } from 'react-router-dom'
+import Navbar from "./components/navbar.jsx";
+import Home from './pages/home/home';
+import News from './pages/news/news';
+import Profile from './pages/profile/profile';
+import Login from './pages/login/login';
+import requireAuthentication from './components/requireAuthentication'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Navbar />
+        <div>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/news" component={News} />
+                <Route path="/profile" component={requireAuthentication(Profile)} />
+                <Route path="/login" component={Login} />
+            </Switch>
+        </div>
       </div>
     );
   }
