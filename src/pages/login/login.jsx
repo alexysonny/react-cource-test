@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import * as authActions from '../../store/actions/LoginActions';
 import "./login.css";
+import PropTypes from "prop-types";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
+  static contextTypes = {
+    router: PropTypes.object
+  }
+
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       login: "",
       password: "",
@@ -20,8 +26,14 @@ class Login extends Component {
     }
   }
   onSubmitHandler() {
-    this.props.authActions.userLogin(this.state.login, this.state.password)
-
+    this.props.authActions.userLogin({
+      login: this.state.login,
+      password: this.state.password
+    });
+    console.log(this.context.router.history);
+    if (this.props.isLoggedIn === true) {
+      this.context.router.history.push('/news')
+    }
   }
   render() {
     return (
@@ -68,4 +80,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (Login)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps) (Login))

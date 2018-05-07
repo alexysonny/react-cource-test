@@ -6,6 +6,7 @@ import Home from './pages/home/home';
 import News from './pages/news/news';
 import Profile from './pages/profile/profile';
 import Login from './pages/login/login';
+import requireAuthentication from './components/requireAuthentication'
 
 class App extends Component {
   render() {
@@ -16,7 +17,7 @@ class App extends Component {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/news" component={News} />
-                <Route path="/profile" component={Profile} />
+                <Route path="/profile" component={requireAuthentication(Profile)} />
                 <Route path="/login" component={Login} />
             </Switch>
         </div>
