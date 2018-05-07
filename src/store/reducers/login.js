@@ -1,8 +1,9 @@
-import * as Auth from "../constants/Auth";
+import * as Auth from '../constants/Auth';
 
 const initialState = {
-  isLoggedIn: JSON.parse(window.localStorage.getItem("auth")) || false,
-  authError: false
+  isLoggedIn: JSON.parse(window.localStorage.getItem('auth')) || false,
+  authError: false,
+  userID: null
 };
 
 export default function login(state = initialState, action) {
@@ -13,13 +14,22 @@ export default function login(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: action.payload.auth,
-        authError: action.payload.error
+        authError: action.payload.error,
+        userID: action.payload.userID
       };
     case Auth.LOGIN_FAIL:
       return {
         ...state,
         isLoggedIn: action.payload.auth,
-        authError: action.payload.error
+        authError: action.payload.error,
+        userID: null
+      };
+    case Auth.SERVER_ERROR:
+      return{
+        ...state,
+        isLoggedIn: action.payload.auth,
+        authError: action.payload.error,
+        userID: null
       };
     default:
       return state;
